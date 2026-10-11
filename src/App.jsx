@@ -10,10 +10,17 @@ function App() {
     setTotal(Number(price) * Number(shares))
   }
 
+  function resetCalculator() {
+  setPrice('')
+  setShares('')
+  setTotal(null)
+}
+
   return (
     <div className="container">
       <h1>Mini Strata</h1>
       <p>Simple Investment Calculator</p>
+      <p>Enter a stock price and number of shares.</p>
 
       <label>Stock Price ($)</label>
       <input
@@ -30,6 +37,7 @@ function App() {
       />
 
       <button onClick={calculateValue}>Calculate</button>
+      <button onClick={resetCalculator}>Reset</button>
 
       {total !== null && (
         <h2>Total Value: ${total.toFixed(2)}</h2>
